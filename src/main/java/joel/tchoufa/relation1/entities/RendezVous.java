@@ -1,5 +1,6 @@
 package joel.tchoufa.relation1.entities;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import joel.tchoufa.relation1.enums.StatusRDV;
 import lombok.AllArgsConstructor;
@@ -16,6 +17,7 @@ public class RendezVous {
     @Enumerated(EnumType.STRING)
     private StatusRDV statusRDV;
     @ManyToOne
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private Patient patient;
     @ManyToOne
     private Medecin medecin;
